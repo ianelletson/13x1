@@ -40,6 +40,18 @@ public class IntList {
 		}
 		return len;
 	}
+	
+	/**
+	 * Get an element from this IntList by position.
+	 * @param index the position (counting from 0)
+	 * @return the value at that position
+	 * @throws IndexOutOfBoundsException if index not in [0,length)
+	 */
+	public int get(int index){
+		// TODO handle the non-exceptional case
+		
+		throw new IndexOutOfBoundsException();
+	}
 
 	/**
 	 * Convert this IntList to a String.
@@ -91,4 +103,5 @@ public class IntList {
 		}
 
 	}
+	
 }
