@@ -6,25 +6,24 @@ public class IntTest {
 
 	@Test
 	public void test() {
-		boolean t = true;
-		int i = t == true ? 1 : 0;
-		assert(i == 1);
-		IntList ill = IntList.NIL.cons(1);
-		ill.cons(1);
-		int one = ill.get(1);
-		assert (one == 1);
-		ill.cons(2);
-		ill.cons(3);
-		ill.cons(4);
-		int zero = ill.get(0);
-		assert (zero == 0);
-//		int one = ill.get(1);
-//		assert (one == 1);
-//		int four = ill.get(4);
-//		assert (four == 4);
-		
-		
-//		fail("Not yet implemented");
+		IntList ill = IntList.NIL;
+		ill = ill.cons(0);
+		ill = ill.cons(1);
+		ill = ill.cons(2);
+		ill = ill.cons(3);
+		int san = ill.get(0);
+		int ni = ill.get(1);
+		int ichi = ill.get(2);
+		int rei = ill.get(3);
+		System.out.print(ill);
+		System.out.print(san);
+		System.out.print(ni);
+		System.out.print(ichi);
+		System.out.print(rei);
+		assertEquals(san, 3);
+		assertEquals(ni, 2);
+		assertEquals(ichi, 1);
+		assertEquals(rei, 0);
 	}
 
 }

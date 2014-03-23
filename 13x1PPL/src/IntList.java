@@ -3,7 +3,7 @@
  */
 public class IntList {
 	private ConsCell start; // first in the list or null
-	
+
 	/**
 	 * The empty IntList.
 	 */
@@ -11,24 +11,28 @@ public class IntList {
 
 	/**
 	 * Construct a new IntList given its first ConsCell.
-	 * @param s the first ConsCell in the list or null
+	 * 
+	 * @param s
+	 *            the first ConsCell in the list or null
 	 */
 	private IntList(ConsCell s) {
 		start = s;
 	}
 
 	/**
-	 * Cons the given element h onto us and return the
-	 * resulting IntList.
-	 * @param h the head int for the new list
+	 * Cons the given element h onto us and return the resulting IntList.
+	 * 
+	 * @param h
+	 *            the head int for the new list
 	 * @return the IntList with head h and us for a tail
 	 */
-	public IntList cons (int h) {
-		return new IntList(new ConsCell(h,start));
+	public IntList cons(int h) {
+		return new IntList(new ConsCell(h, start));
 	}
-	
+
 	/**
 	 * Get our length.
+	 * 
 	 * @return our int length
 	 */
 	public int length() {
@@ -40,17 +44,34 @@ public class IntList {
 		}
 		return len;
 	}
-	
+
 	/**
 	 * Get an element from this IntList by position.
-	 * @param index the position (counting from 0)
+	 * 
+	 * @param index
+	 *            the position (counting from 0)
 	 * @return the value at that position
-	 * @throws IndexOutOfBoundsException if index not in [0,length)
+	 * @throws IndexOutOfBoundsException
+	 *             if index not in [0,length)
 	 */
-	public int get(int index){
+	public int get(int index) {
 		// TODO handle the non-exceptional case
-		
-		throw new IndexOutOfBoundsException();
+		ConsCell a = start;
+		int i = 0;
+		int ret = 0;
+		if ((index >= 0) && (index < this.length())) {
+			while (a != null) {
+				if (i == index) {
+					ret = a.getHead();
+					break;
+				}
+				++i;
+				a = a.getTail();
+			}
+		} else {
+			throw new IndexOutOfBoundsException();
+		}
+		return ret;
 	}
 
 	/**
@@ -63,31 +84,36 @@ public class IntList {
 		while (a != null) {
 			s.append(a.getHead());
 			a = a.getTail();
-			if (a != null) s.append(",");
+			if (a != null)
+				s.append(",");
 		}
 		s.append("]");
 		return s.toString();
 	}
 
 	/**
-	 * A ConsCell is an element in a linked list of
-	 * ints.
+	 * A ConsCell is an element in a linked list of ints.
 	 */
 	private static class ConsCell {
 		private int head; // the first item in the list
 		private ConsCell tail; // rest of the list or null
 
-		/** 
+		/**
 		 * Construct a new ConsCell given its head and tail.
-		 * @param h the int contents of this cell
-		 * @param t the next ConsCell in the list or null
+		 * 
+		 * @param h
+		 *            the int contents of this cell
+		 * @param t
+		 *            the next ConsCell in the list or null
 		 */
 		public ConsCell(int h, ConsCell t) {
 			head = h;
 			tail = t;
 		}
+
 		/**
 		 * Accessor for the head of this ConsCell.
+		 * 
 		 * @return the int contents of this cell
 		 */
 		public int getHead() {
@@ -96,6 +122,7 @@ public class IntList {
 
 		/**
 		 * Accessor for the tail of this ConsCell.
+		 * 
 		 * @return the next ConsCell in the list or null
 		 */
 		public ConsCell getTail() {
@@ -103,5 +130,5 @@ public class IntList {
 		}
 
 	}
-	
+
 }
