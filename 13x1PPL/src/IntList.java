@@ -55,23 +55,17 @@ public class IntList {
 	 *             if index not in [0,length)
 	 */
 	public int get(int index) {
-		// TODO handle the non-exceptional case
-		ConsCell a = start;
-		int i = 0;
-		int ret = 0;
-		if ((index >= 0) && (index < this.length())) {
-			while (a != null) {
+		// 
+		if (index <= this.length()) {
+			ConsCell head = start;
+			for (int i = 0; i <= index; ++i) {
 				if (i == index) {
-					ret = a.getHead();
-					break;
+					return head.getHead();
 				}
-				++i;
-				a = a.getTail();
+				head = head.getTail();
 			}
-		} else {
-			throw new IndexOutOfBoundsException();
 		}
-		return ret;
+		throw new IndexOutOfBoundsException();
 	}
 
 	/**
