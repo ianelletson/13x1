@@ -7,15 +7,16 @@ public class IntTest {
 	@Test
 	public void test() {
 		IntList ill = IntList.NIL;
-		ill = ill.cons(0);
-		ill = ill.cons(1);
-		ill = ill.cons(2);
-		ill = ill.cons(3);
-		for (int i = 4; i < 1000; i++) {
+		int test = 100000;
+//		ill = ill.cons(0);
+//		ill = ill.cons(1);
+//		ill = ill.cons(2);
+//		ill = ill.cons(3);
+		for (int i = 0; i < test; i++) {
 			ill = ill.cons(i);
 		}
-		int san = ill.get(0);
-//		int ni = ill.get(1);
+		int san = ill.get(20);
+		int ni = ill.get(5);
 //		int ichi = ill.get(2);
 //		int rei = ill.get(3);
 //		System.out.print(ill);
@@ -24,8 +25,8 @@ public class IntTest {
 //		System.out.print(ni);
 //		System.out.print(ichi);
 //		System.out.print(rei);
-		assertEquals(san, 999);
-//		assertEquals(ni, 8);
+		assertEquals(san, test-21);
+		assertEquals(ni, test-6);
 //		assertEquals(ichi, 7);
 //		assertEquals(rei, 6);
 	}
