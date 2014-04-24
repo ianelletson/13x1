@@ -55,17 +55,14 @@ public class IntList {
 	 *             if index not in [0,length)
 	 */
 	public int get(int index) {
-		// 
-		if (index <= this.length()) {
-			ConsCell head = start;
-			int i = 0;
-			while (head != null) {
-				if (i == index) {
-					return head.getHead();
-				} else {
-					i++;
-					head = head.getTail();
-				}
+		ConsCell head = start;
+		int i = 0;
+		while (head != null) {
+			if (i == index) {
+				return head.getHead();
+			} else {
+				i++;
+				head = head.getTail();
 			}
 		}
 		throw new IndexOutOfBoundsException();
