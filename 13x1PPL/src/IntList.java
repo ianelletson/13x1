@@ -58,11 +58,14 @@ public class IntList {
 		// 
 		if (index <= this.length()) {
 			ConsCell head = start;
-			for (int i = 0; i <= index; ++i) {
+			int i = 0;
+			while (head != null) {
 				if (i == index) {
 					return head.getHead();
+				} else {
+					i++;
+					head = head.getTail();
 				}
-				head = head.getTail();
 			}
 		}
 		throw new IndexOutOfBoundsException();

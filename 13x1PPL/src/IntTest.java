@@ -7,7 +7,7 @@ public class IntTest {
 	@Test
 	public void test() {
 		IntList ill = IntList.NIL;
-		int test = 100000;
+		int test = 500;
 //		ill = ill.cons(0);
 //		ill = ill.cons(1);
 //		ill = ill.cons(2);
